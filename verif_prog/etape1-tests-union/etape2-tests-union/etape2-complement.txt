@@ -1,0 +1,66 @@
+/* --------------------------------------------
+   Tests de l'union, complement :
+    - solution de l'etape 1
+    - debut de l'etape 2
+
+   F. Balmas
+*/
+
+// inclure les 2 fonctions ci-dessous dans debut-test-main-union.c
+// ajouter un appel a verif_search_nom() AVANT l'appel a verif_add_nom_si_necessaire()
+// completer la fonction verif_search_nom() selon les indications
+
+void verif_add_nom_si_necessaire() {
+    int res;
+
+    //printf("des mots qui doivent etre ajoutes\n");
+    printf("cale  (doit etre ajoute)\n");
+    res = add_nom_si_necessaire("cale");
+    assert(res == 1);
+
+    printf("auto  (doit etre ajoute)\n");
+    res = add_nom_si_necessaire("auto");
+    assert(res == 1);
+
+    printf("bord  (doit etre ajoute)\n");
+    res = add_nom_si_necessaire("bord");
+    assert(res == 1);
+
+    //printf("des mots qui ne doivent pas etre ajoutes\n");
+    printf("pur  (ne doit pas etre ajoute)\n");
+    res = add_nom_si_necessaire("pur");
+    assert(res == 0);
+
+    printf("sel  (ne doit pas etre ajoute)\n");
+    res = add_nom_si_necessaire("sel");
+    assert(res == 0);
+
+    printf("bar  (ne doit pas etre ajoute)\n");
+    res = add_nom_si_necessaire("bar");
+    assert(res == 0);
+}
+
+void verif_search_nom() {
+    LINKED res;
+
+    //printf("des mots qui ne doivent pas etre trouves\n");
+    printf("cale  (ne doit pas etre trouve)\n");
+    res = search_nom("cale");
+    if (res==NULL)
+        printf("non trouve\n");
+    else
+        printf("trouve\n");
+    assert(res == NULL);
+
+    // coder les test pour les mots suivants
+    // auto
+    // bord
+
+    //printf("des mots qui ne doivent pas etre ajoutes\n");
+    // pur
+    // sel
+    // bar
+
+    // A COMPLETER en se basant sur le pdf
+
+}

@@ -1,0 +1,137 @@
+/* --------------------------------------------
+   Tests de l'union, complement :
+    - solution de l'etape 2
+    - debut de l'etape 3
+
+   F. Balmas
+*/
+
+// inclure les 2 fonctions ci-dessous dans debut-test-main-union.c
+// ajouter un appel a verif_member() en fin de main()
+// completer la fonction verif_member() selon les indications
+
+void verif_search_nom() {
+    LINKED res;
+
+    //printf("des mots qui ne doivent pas etre trouves\n");
+    printf("cale  (ne doit pas etre trouve)\n");
+    res = search_nom("cale");
+    if (res==NULL)
+        printf("non trouve\n");
+    else
+        printf("trouve\n");
+    assert(res == NULL);
+
+    printf("auto  (ne doit pas etre trouve)\n");
+    res = search_nom("auto");
+    if (res==NULL)
+        printf("non trouve\n");
+    else
+        printf("trouve\n");
+    assert(res == NULL);
+
+    printf("bord  (ne doit pas etre trouve)\n");
+    res = search_nom("bord");
+    if (res==NULL)
+        printf("non trouve\n");
+    else
+        printf("trouve\n");
+    assert(res == NULL);
+
+    //printf("des mots qui doivent etre trouves\n");
+    printf("pur  (doit etre trouve)\n");
+    res = search_nom("pur");
+    if (res==NULL)
+        printf("non trouve\n");
+    else
+        printf("trouve\n");
+    assert(res != NULL);
+
+    printf("sel  (doit etre trouve)\n");
+    res = search_nom("sel");
+    if (res==NULL)
+        printf("non trouve\n");
+    else
+        printf("trouve\n");
+    assert(res != NULL);
+
+    printf("bar  (doit etre trouve)\n");
+    res = search_nom("bar");
+    if (res==NULL)
+        printf("non trouve\n");
+    else
+        printf("trouve\n");
+    assert(res != NULL);
+}
+
+void verif_member() {
+    LINKED res, T;
+    struct linked TETE;
+    int i;
+
+    // creation d'une liste pour les tests
+    T = &TETE;
+    init_list(T);
+
+    printf("tests avec liste vide : ");
+    print_list(T);
+
+    printf("cale (inexistant)\n");
+    res = member("cale", T);
+    if (res==NULL)
+        printf("non trouve\n");
+    else
+        printf("trouve\n");
+    assert(res == NULL);
+
+    // tests avec une liste a un seul element
+    res = alloc_list();
+    strcpy(res->nom, liste_mots[0]);
+    add_begin(T, res);
+
+    printf("tests avec liste a un seul element : ");
+    print_list(T);
+
+    printf("tir (existant)\n");
+    res = member("tir", T);
+    if (res==NULL)
+        printf("non trouve\n");
+    else
+        printf("trouve\n");
+    assert(res != NULL);
+
+    // A completer en se basant sur le pdf 
+    // code les tests pour les mots suivants
+    // sel (inexistant)
+
+
+    // tests avec une liste a plus d'elements
+    // ajouter a T les mots de liste_mots[]
+
+    printf("tests avec une liste a plusieurs elements : ");
+    print_list(T);
+
+    printf("pur  (existant en milieu de liste)\n");
+
+    printf("vue  (existant en debut de liste)\n");
+
+    printf("tir  (existant en fin de liste)\n");
+
+    printf("cale  (inexistant)\n");
+
+    // tests dans une liste contenant uniquement plusieurs fois le meme mot
+    T->cell->cell=NULL;
+    for (i=0 ; i<5 ; i++) {
+        res = alloc_list();
+        strcpy(res->nom, "vue");
+        add_begin(T, res);
+    }
+
+    printf("tests dans une liste contenant uniquement plusieurs fois le meme mot > ");
+    print_list(T);
+
+    printf("mer  (inexistant)\n");
+
+    printf("vue  (existant)\n");
+
+}

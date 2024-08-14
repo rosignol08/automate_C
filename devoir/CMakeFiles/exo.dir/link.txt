@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/exo.dir/devoir.c.o CMakeFiles/exo.dir/hashcode.c.o CMakeFiles/exo.dir/freel-liste.c.o -o exo 
